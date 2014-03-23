@@ -25,7 +25,7 @@
 	</div>
 	
 	<div data-role="footer">
-		<h4>Raymond Camden</h4>
+		<h4>Scotch Club</h4>
 	</div>	
 
 </div>
@@ -34,7 +34,7 @@
 $("#indexPage").live("pageinit", function() {
 	console.log("Getting remote list");
 	$.mobile.showPageLoadingMsg();
-	$.get("http://localhost/testingzone/phonegaptests/conversion/service/artservice.cfc?method=getArtList&returnformat=json", {}, function(res) {
+	$.get("http://app.czern.in/scotchclub/android", {}, function(res) {
 		$.mobile.hidePageLoadingMsg();
 		var s = "";
 		for(var i=0; i<res.length; i++) {
@@ -52,7 +52,7 @@ $("#detailPage").live("pageshow", function() {
 	var id = query.split("=")[1];
 	console.log("Getting remote detail for "+id);
 	$.mobile.showPageLoadingMsg();
-	$.get("http://localhost/testingzone/phonegaptests/conversion/service/artservice.cfc?method=getArt&returnformat=json", {id:id}, function(res) {
+	$.get("http://app.czern.in/scotchclub/android", {id:id}, function(res) {
 		$.mobile.hidePageLoadingMsg();
 		$("h1",page).text("Art: " + res.name);
 		var s = "<p>" + res.description + "</p>";
